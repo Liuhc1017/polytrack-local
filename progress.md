@@ -22,3 +22,11 @@ Original prompt: Create Polytrack (a racing game) that runs locally. Search the 
 - Optionally add audio engine SFX/music if desired (`libasound` support is already available for headless testing setup).
 - Add a second track layout and a menu track selector.
 - Expose a dedicated pause toggle and include pause state in `render_game_to_text`.
+- Converted renderer from top-down 2D to 3D projected polygons with a third-person chase camera behind the car.
+- Moved gameplay to world-space (`x,z` ground plane + `y` vertical), kept lap/time-trial logic, and preserved deterministic hooks (`render_game_to_text`, `advanceTime`).
+- Added 3D environment layers (ground planes, low-poly mountains, elevated track edges), projected finish line, and low-poly 3D car mesh.
+- Verified 3D interaction loops with Playwright:
+  - Menu/start overlay: `output/web-game/3d-menu`
+  - Restart flow: `output/web-game/3d-restart`
+  - Multi-lap finish transition: `output/web-game/3d-finish` (`mode: "finished"`, laps `3/3`)
+  - No console/page errors in these runs.

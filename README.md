@@ -1,6 +1,6 @@
 # Polytrack Local
 
-A local browser racing game inspired by PolyTrack's low-poly time-trial format.
+A local browser racing game inspired by PolyTrack's low-poly time-trial format, rendered in a 3D third-person chase-camera view.
 
 ## Run locally
 

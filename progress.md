@@ -9,3 +9,16 @@ Original prompt: Create Polytrack (a racing game) that runs locally. Search the 
 - First Playwright run generated gameplay screenshots and state JSON, no console errors, but revealed progress tracking drift when nearest-segment selection jumped across the loop.
 - Patched track progression continuity by constraining nearest-segment search around the current segment and storing `segmentIndex` in car state.
 - Added mild steering alignment assist toward track tangent to stabilize lap progression during keyboard-only runs.
+- Added targeted Playwright action scenarios for menu, restart flow, and multi-lap finish validation under `tests/`.
+- Verified artifacts visually and via `state-*.json`:
+  - Menu state captured (`output/web-game/menu2`).
+  - Restart behavior confirmed (`output/web-game/restart`) with race clock reset.
+  - Lap progression + finish transition confirmed (`output/web-game/final-check`) with `mode: "finished"`, 3/3 laps.
+  - No console/page errors emitted in any scenario.
+- Created `.gitignore` and committed all source + test payloads.
+- Published repository: `https://github.com/Liuhc1017/polytrack-local` on branch `main`.
+
+## TODO / Suggestions
+- Optionally add audio engine SFX/music if desired (`libasound` support is already available for headless testing setup).
+- Add a second track layout and a menu track selector.
+- Expose a dedicated pause toggle and include pause state in `render_game_to_text`.
